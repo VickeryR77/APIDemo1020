@@ -10,10 +10,20 @@ export class DataAccessService {
 
   apiUrl = '/api/employees';
 
+  //GetAll
   getEmployees() {
     return this.http.get(this.apiUrl);
   }
 
+  //GetOne
+  getEmployee(id) {
+    return this.http.get(`${this.apiUrl}/${id}`);
+  }
+
+  //Post
+  createEmployee(emp) {
+    return this.http.post<Employee>(this.apiUrl, emp);
+  }
 
 
 }

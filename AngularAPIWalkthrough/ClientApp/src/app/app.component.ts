@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataAccessService } from './data-access.service';
+import { Employee } from './interfaces/Employee';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,32 @@ export class AppComponent {
   clickGetAll() {
     this.dal.getEmployees().subscribe(
       (data) => {
-        console.log('All Employees');
+        console.log('All Employees Gotten');
+        console.log(data);
+      }
+    );
+  }
+
+  clickGetOne() {
+    this.dal.getEmployee(5).subscribe(
+      (data) => {
+        console.log('One Employee Gotten');
+        console.log(data);
+      }
+    );
+  }
+
+  clickCreateOne() {
+   let emp = {
+      FirstName: 'Thomas',
+      LastName: 'Jefferson',
+      Department: 'Management',
+      Salary: 100000
+    }
+
+    this.dal.createEmployee(emp).subscribe(
+      (data) => {
+        console.log('One Employee Created');
         console.log(data);
       }
     );
