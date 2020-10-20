@@ -43,4 +43,22 @@ export class AppComponent {
       }
     );
   }
+
+  clickUpdateOne() {
+    let emp = {
+      id: 5,
+      FirstName: 'Ringo',
+      LastName: 'Star',
+      Department: 'Music',
+      Salary: 50000
+    }
+
+    this.dal.updateEmployee(emp).subscribe(
+      (data) => {
+        console.log('One Employee Updated');
+        console.log(data);
+      }
+    );
+  }
+
 }

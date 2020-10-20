@@ -20,8 +20,13 @@ export class DataAccessService {
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  //Post
+  //Post | for creating, but uses same API call as update.
   createEmployee(emp) {
+    return this.http.post<Employee>(this.apiUrl, emp);
+  }
+
+  //Updating, these could be one function, maybe call it save?
+  updateEmployee(emp) {
     return this.http.post<Employee>(this.apiUrl, emp);
   }
 
