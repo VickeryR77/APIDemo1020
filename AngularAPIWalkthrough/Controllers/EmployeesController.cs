@@ -30,7 +30,7 @@ namespace AngularAPIWalkthrough.Controllers
         }
         
         [HttpPost]
-        public Employee Save([FromForm] Employee emp)
+        public Employee Save(Employee emp)
         {
             return Employee.Update(emp);
         }
